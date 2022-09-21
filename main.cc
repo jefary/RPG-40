@@ -35,6 +35,18 @@ vector<string> main_map = {
 	"__________________________________________________",
 };
 
+char get_world_location(size_t row, size_t col) {
+    if (row >= main_map.size()) return ' ';
+    if (col >= main_map.at(row).size()) return ' ';
+    return main_map.at(row).at(col);
+}
+
+void set_world_location(size_t row, size_t col, char c) {
+    if (row >= main_map.size()) return;
+    if (col >= main_map.at(row).size()) return;
+    main_map.at(row).at(col) = c;
+}
+
 void print_mainmap(size_t player_row, size_t player_col) { //This prints map
     clearscreen();
     movecursor(0,0);
