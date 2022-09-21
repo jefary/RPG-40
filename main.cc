@@ -12,7 +12,7 @@
 using namespace std;
 
 vector<string> main_map = {
-	"__________________________________________________",
+	"__________________________________________________", // This is the map(placeholder)
 	"|                                                |",
 	"|                                                |",
 	"|                                                |",
@@ -35,7 +35,7 @@ vector<string> main_map = {
 	"__________________________________________________",
 };
 
-void print_mainmap(size_t player_row, size_t player_col) {
+void print_mainmap(size_t player_row, size_t player_col) { //This prints map
     clearscreen();
     movecursor(0,0);
     for (size_t row = 0; row < main_map.size(); row++) {
@@ -50,11 +50,11 @@ void print_mainmap(size_t player_row, size_t player_col) {
 
 int main() {
     const int ROWS = main_map.size();
-    const int COLS = main_map.at(0).size(); //MAKE SURE ALL ROWS ARE THE SAME SIZE OR BAD TIMES
+    const int COLS = main_map.at(0).size();
     const int FPS = 60;
     int row = ROWS/2, col = COLS/2;
     int last_row = -1, last_col = -1; //Save our last position so we only redraw on update
-    set_raw_mode(true);
+    set_raw_mode(true); //Non-blocking IO
     show_cursor(false);
     while (true) {
         int c = toupper(quick_read());
