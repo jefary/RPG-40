@@ -15,43 +15,43 @@ using namespace std;
 vector<string> world_map {
 	"*****************************************************************************************",
 	"* .                 T             .       ...                                           *",
-	"*T      P     P           P           P   T   T       T P     T         T   .     T . T *",
-	"*   . T             T  . . . T           P     . T T   .       P T     .     T     .    *",
-	"* .   T T   T   . T T . T       . T   . .     . T   T         T     .               .   *",
-	"*T  P . T     P         .       T       P       P T     .       . . P         T P   T . *",
-	"* T . T   T P P               P   T   T T   P P   P T P P . T         P         T       *",
-	"*.  T   T . P         .   T . T             P   .     T . . .   T     T P   T . T .   T *",
-	"*               T T         T P P T T     T   P   T         P           P     P         *",
-	"* P P . P   P T T T   T   . P         P   T   T     .     .   T     . T     . . . P     *",
-	"*       T   T . . T T .   T   P     .         T P     T P  R    T P T .   P   P T   .   *",
-	"*     T       T               P T T P T   .   .     T     P   P   T P P     T       P P *",
-	"* P P . P T         P P . T     T P     T .   T T     . .           T       T       T P *",
-	"* . T       T .   T       P   T       P   T       P T   P P   T         T T     T       *",
+	"*T      .     .                           T   T       T       T         T   .     T . T *",
+	"*   . T     C       T  . . . T                 . T T   .         T ********   T    .    *",
+	"* .   T T                                                          *      *  .    T     *", 
+	"*T    . T               .       T                 T     .       .       R *   T     T . *",
+	"* T . T   T     .                 T   T T           T     . T     /*      *     T       *",
+	"*.  T   T .           .   T . T                 .     T . . .   T  ********  T . T .  T *",
+	"*               T T         T     T T     T       T                                     *",
+	"*     .       T T T   T   .               T   T     .     .   T     . T     . . .       *",
+	"*       T   T . . T T .   T         .         T       T         T   T .         T   .   *",
+	"*     T       T                 T T   T   .   .     T     P       T         T           *",
+	"*     .   T             . T     T       T .   T T     . .           T       T       T P *",
+	"* . T       T .   T       .   T       P   T       P T         T         T T     T       *",
 	"* B   G   B B P     B                       B * G   *                       B * * B     *",
-	"* *   G * G B             G G       *   B             B B               *     * * *     *",
-	"* P     P P B   G G *     P   P B       G               P P P           G       * * B G *",
-	"*       G         * G *   B P B       B B P B   B     P               P       *         *",
-	"*B *   * B   *       B *   *       G           G G B * P G G        *   G             B *",
-	"* P *   S         G   P   G   G   *         P G G           G G   B     * * G   G       *",
-	"* P P                     * B P   G   B   B B               B G B     G G B       *   P *",
-	"*   *   B *   * P B       P   P * P       P         G     * G G   B     B     P B   P   *",
-	"* G G B B *   P   B B         B   G     B *   B   B B   *   B       G   B P         G P *",
-	"*   B         *            R    P P   B * *               B   * P B   P G * P * G P     *",
-	"*     P P G P         *       P G                   P P       P P         G             *",
+	"* *     *   B               G       *   B             B B    .          *     * * *     *",
+	"*  .        B     G *   .     P B       G  .    T                       G       * * B G *",
+	"*       G         * G *   B   B       B B   B   B     P          .    P       *         *",
+	"*B *   * B   *       B *   *       G           G   B *     G        *   G             B *",
+	"* R  *         .  G   P   G       *         P          .          B     * *     G       *",
+	"* P                      * B P        B   B B               B G B     G G B       *   P *",
+	"*   *   B *   * P B       P     *         P         G     * G G   B     B       B       *",
+	"* G G B B *   P   B B   ~  ****   B   G B *   B   B B   *   B       G   B P         G P *",
+	"*   B         *   ~          S *  P     B * *             B   * P B   P G * P * G P     *",
+	"*     P P G P         *    ****                     P P       P P         G             *",
 	"* G G         P   *     P     G   B *         *       G B   G   P   P     B G   B B     *",
-	"*     *   B   G           P P   P P G       P     P       B B   P *     P         G   G *",
-	"*         * B *         P P   *   * P           B   G B *             G   G B P     B   *",
+	"*     *   B   G           P P   P P G   ~   P     P       B B   P *     P         G   G *",
+	"*         * B *         P P   *   * P           B   G B *           C G   G B P     B   *",
 	"*   ~ * ~ *     ~ G G     G *   B G *       *     G B     * * B B * * G   R   * * B G G *",
 	"* B G     *     G * ~ *         B     *     ~     * *     *   * * ~ * G *   * * *   ~   *",
-	"* B ~             G *     G G       G   *     * G ~   B G       * ~ ~ G   *   *   G ~ * *",
-	"* G G B   G * B * G ~ * * B ~ G B   B B * ~   ~ *         * G * *   * B *     G   ~   G *",
+	"* B ~        C    G *     G G       G   *     * G ~   B G       * ~ ~ G   *   *   G ~ * *",
+	"* G G B   G * B * G ~ * * B ~ G B   B B * ~   ~ *         * G * * C * B *     G   ~   G *",
 	"*~  B   * B ~     G   G ~ G   * G   G * B G G * ~   G B     B   B   B   B B     G   B G *",
 	"* B ~ G G   G   ~   G         G G   G G     ~   G     B   B B *   B   ~   ~   B   *     *",
 	"* ~ G B G     ~ *       *   G *   ~     ~     ~   G B   * *   ~ * * B   G * ~ *   * G B *",
 	"*     * ~   *   G  R  G   * B   ~   G * B ~     ~ *   *     *     G G   B B   B * B     *",
 	"G   B G B * G B   * ~ G *     G *   *               ~   G * * * * * R * B     * * * * ~ *",
 	"*   G B   ~ *     B *   ~ G ~     * G * G     G   ~ * B         ~     ~   B           ~ *",
-	"* *   B B   G B   G     B     * ~ G *   *         *   G G   B   G B * G G B G B G * B G *",
+	"* *   B B   G B   G     B     * ~ G *   *  C      *   G G   B   G B * G G B G B G * B G *",
 	"*   B   * B G G   *     G G *   G G   ~ ~ B G ~ G G G   G     B ~   *     B   * *   ~   *",
 	"*   G G ~   G G   G             G *   B   *   G     ~     B *   G     G G *   *       G *",
 	"*****************************************************************************************",
@@ -69,12 +69,12 @@ void set_world_location(size_t row, size_t col, char c) {
     world_map.at(row).at(col) = c;
 }
 
-void print_world(size_t player_row, size_t player_col) {
+void print_world(size_t player_row, size_t player_col) { //Color here!!!
     clearscreen();
     movecursor(0,0);
     for (size_t row = 0; row < world_map.size(); row++) {
         for (size_t col = 0; col < world_map.at(row).size(); col++) {
-            if (row == player_row and col == player_col) cout <<'H';
+            if (row == player_row and col == player_col) cout << YELLOW <<'H'<< RESET;
             else
                 cout << world_map.at(row).at(col);
         }
@@ -88,8 +88,8 @@ int main() {
     const int FPS = 60;
     int row = ROWS/8, col = COLS/8;
     int last_row = -1, last_col = -1; //Save our last position so we only redraw on update
-	int invPotion = 0, invSword = 0;
-	int heroHealth = 100;
+	int invPotion = 0, invSword = 0, invCoin = 0, invRiddle = 0;  //Variables in inventory
+	int heroHealth = 1000, heroDamage = 1; //Player stats
     set_raw_mode(true);
     show_cursor(false);
     while (true) {
@@ -99,14 +99,22 @@ int main() {
         if (c == DOWN_ARROW) row++;
         if (c == LEFT_ARROW) col--;
         if (c == RIGHT_ARROW) col++;
+		if (c == 'P') {
+			if (invPotion > 0){
+				invPotion--;
+				heroHealth+= 10;
+			}
+		}
         if (!(row == last_row and col == last_col)) { //If we moved...
             print_world(row,col); //...redraw the map
             last_row = row;
             last_col = col;
             movecursor(2,COLS+5);
-            cout << YELLOW << "(!) OBJECTIVE: COMPLETE ALL FIVE RIDDLES WITHOUT DYING!" << RESET;
+            cout << YELLOW << "(!) OBJECTIVE: COMPLETE ALL FIVE RIDDLES & COLLECT 10 COINS WITHOUT DYING!" << RESET;
 			movecursor(3,COLS+5);
 			cout << CYAN << "Health: " << heroHealth << RESET;
+			movecursor(3,COLS+18);
+			cout << CYAN << "Coins: " << invCoin << RESET;
             movecursor(4,COLS+5);
 			cout << GREEN << "INVENTORY:" << RESET;
 			if (invSword > 0) {
@@ -123,14 +131,32 @@ int main() {
             set_world_location(row,col,' ');
 			invPotion++;
             movecursor(4,COLS+15);
-            cout << "Health potion picked up!\n";
+            cout << "Health potion picked up! Press P to use.\n";
         }
+		if (get_world_location(row, col) == 'C') {
+			set_world_location(row,col,' ');
+			invCoin++;
+			movecursor(4, COLS+15);
+			cout << "Coin picked up! \n";
+		}
         if (get_world_location(row, col) == 'S') {
 			set_world_location(row, col, ' ');
 			invSword++;
             movecursor(4, COLS+15);
             cout << "Sword picked up!";
         }
+		if (get_world_location(row, col) == '~') {
+            heroHealth-= 1;
+            movecursor(4, COLS+15);
+            cout << RED << "You stepped in LAVA! GET OUT!" << RESET;
+		}
+		if (get_world_location(row, col) == 'R') {
+			//This would set off the riddle H  over R
+			//NPC diologue here
+		}
+		if (get_world_location(row, col) == 'G') {
+			//Combat system goes here
+		}
         if (c == ERR) usleep(1'000'000 / FPS);
     }
     set_raw_mode(false);
