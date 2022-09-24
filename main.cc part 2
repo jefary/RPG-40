@@ -1,4 +1,4 @@
- //Partners: Brian Vega
+//Partners: Brian Vega
 //Bullet Points:
 //Extra Credit:   
           
@@ -9,6 +9,7 @@
 #include <vector>
 #include <algorithm>
 #include <unistd.h>
+
 using namespace std;
 
 vector<string> world_map {
@@ -56,17 +57,14 @@ vector<string> world_map {
     "*****************************************************************************************",
 };
 
-         
-         }   if (col >= world_map.at(row).size()) return;
-    world_map.at(row).at(col) = c;
-}                                               {
-
-void print_world(size_t player_row, size_t player_col) { //Color here!!!
-
+char get_world_location(size_t row, size_t col) {
+    if (row >= world_map.size()) return ' ';
+    if (col >= world_map.at(row).size()) return ' ';
+    return world_map.at(row).at(col);
 }
 
-                                                        {
-
+void set_world_location(size_t row, size_t col, char c) {
+    if (row >= world_map.size()) return;
     if (col >= world_map.at(row).size()) return;
     world_map.at(row).at(col) = c;
 }
@@ -87,15 +85,14 @@ void print_world(size_t player_row, size_t player_col) { //Color here!!!
 }
 
 int main() {
-    const int ROWS = world_map.size();
+const int ROWS = world_map.size();
     const int COLS = world_map.at(0).size(); //MAKE SURE ALL ROWS ARE THE SAME SIZE OR BAD TIMES
     const int FPS = 60;
     int row = ROWS / 8, col = COLS / 8;
     int last_row = -1, last_col = -1; //Save our last position so we only redraw on update
     int invPotion = 0, invSword = 0, invCoin = 0, invRiddle = 0;  //Variables in inventory
     int heroHealth = 1000, heroDamage = 1; //Player stats
-    
-          set_raw_mode(true);
+    set_raw_mode(true);
     show_cursor(false);
     while (true) {
         int c = toupper(quick_read());
@@ -150,8 +147,9 @@ int main() {
             movecursor(4, COLS + 15);
             cout << "Sword picked up!";
         }
-        if (get_world_location(row, col) == '~') {
-         heroHealth -= 1;
+        
+         if (get_world_location(row, col) == '~') {
+            heroHealth -= 1;
             movecursor(4, COLS + 15);
             cout << RED << "You stepped in LAVA! GET OUT!" << RESET;
         }
