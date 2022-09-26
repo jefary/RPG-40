@@ -1,7 +1,7 @@
 
-//Partners: Brian Vega
-//Bullet Points:
-//Extra Credit:
+//Partners: Brian Vega, Gaige Unsiog, Quinn
+//Bullet Points:(Brian - Map) (Gaige - Combat) (Quinn - Colors)
+//Extra Credit:(Brian - Inventory)
 
 #include "/public/read.h"
 #include "/public/colors.h"
@@ -68,6 +68,36 @@ void set_world_location(size_t row, size_t col, char c) {
     if (col >= world_map.at(row).size()) return;
     world_map.at(row).at(col) = c;
 }
+
+int attack (int& entHealth) { //attack damage to goblin by player
+  dmg = (rand() % 5 + 1) * 4;
+  entHealth -= dmg;
+  return entHealth;
+}
+int gAttack (int& playerHP) { //attacks from goblin to player
+  dmg = (rand() % 2 + 1);
+  playerHP -= dmg;
+  return playerHP;
+  }
+
+void printCombat(int pHealth, int enmHealth) { // this calls to combat sequence
+ while (pHealth > 0) {
+  cout << "The player attacks" << endl;
+  attack(enmHealth);
+  cout << "Goblin health: " << enmHealth << endl << endl;
+  cout << "The goblin attacks" << endl;
+  gAttack(pHealth);
+  cout << "Player health: " << pHealth << endl << endl;
+  if (enmHealth < 0) {
+      cout << "Goblin died!" << endl;
+     break;
+   }
+   else if (pHealth < 0) {
+      cout << "GAME OVER!" << endl;
+     }
+   }
+}
+
 
 void print_world(size_t player_row, size_t player_col) { //Color here!!!
     clearscreen();
