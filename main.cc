@@ -70,11 +70,13 @@ void set_world_location(size_t row, size_t col, char c) {
 }
 
 int attack (int& entHealth) { //attack damage to goblin by player
+int dmg;
   dmg = (rand() % 5 + 1) * 4;
   entHealth -= dmg;
   return entHealth;
 }
 int gAttack (int& playerHP) { //attacks from goblin to player
+int dmg;
   dmg = (rand() % 2 + 1);
   playerHP -= dmg;
   return playerHP;
